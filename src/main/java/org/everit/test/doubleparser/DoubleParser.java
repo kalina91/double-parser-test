@@ -33,8 +33,9 @@ public interface DoubleParser {
    * strtod returns a value of zero.
    * </p>
    * <p>
-   * If the string has valid syntax for a floating-point number but the value is outside the range
-   * of a double, strtod will signal overflow or underflow.
+   * <i>LEVEL 4</i> - If the string has valid syntax for a floating-point number but the value is
+   * outside the range of a double, strtod will signal "overflow" or "underflow" with a
+   * {@link NumberFormatException}.
    * </p>
    * <p>
    * <i>LEVEL 3</i> - strtod recognizes four special input strings. The strings "inf" and "infinity"
@@ -47,15 +48,13 @@ public interface DoubleParser {
    * </p>
    *
    * <p>
-   * <b>Remark</b>: Functionalities marked with <i>LEVEL 2</i> and <i>LEVEL 3</i> can be implemented
-   * if the basics are implemented and validated!
+   * <b>Remark</b>: Functionalities marked with <i>LEVEL 2</i>, <i>LEVEL 3</i> and <i>LEVEL 4</i>
+   * can be implemented if the basics are implemented and validated!
    * </p>
    *
    * @param str
    *          the input to parse
    * @return the parsed double value of the input
-   * @throws NumberFormatException
-   *           in case of overflow or underflow
    */
   double strtod(char[] str);
 
