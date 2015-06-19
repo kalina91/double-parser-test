@@ -2,7 +2,8 @@ package org.everit.test.doubleparser;
 
 /**
  * A parser that converts a string to double without using any in-built Java functionality such as
- * {@link Double#valueOf(String)}, java.math package, etc.
+ * {@link Double#valueOf(String)}, {@link String#contains(CharSequence)}, java.math package, etc.
+ * Only the Java functionalities mentioned in the {@link #strtod(char[])} method are permitted.
  */
 public interface DoubleParser {
 
@@ -22,8 +23,8 @@ public interface DoubleParser {
    * <li>A floating point number in decimal format. The decimal format is:</li>
    * <ul>
    * <li>A nonempty sequence of digits optionally containing a decimal-point character ‘.’.</li>
-   * <li>LEVEL 2 - An optional exponent part, consisting of a character ‘e’ or ‘E’, an optional
-   * sign, and a sequence of digits.</li>
+   * <li><i>LEVEL 2</i> - An optional exponent part, consisting of a character ‘e’ or ‘E’, an
+   * optional sign, and a sequence of digits.</li>
    * </ul>
    * <li>Any remaining characters in the string are ignored.</li></ul>
    * <p>
@@ -36,13 +37,18 @@ public interface DoubleParser {
    * of a double, strtod will signal overflow or underflow.
    * </p>
    * <p>
-   * LEVEL 3 - strtod recognizes four special input strings. The strings "inf" and "infinity" are
-   * converted to the infinity values described in {@link java.lang.Double}. You can prepend a "+"
-   * or "-" to specify the sign. Case is ignored when scanning these strings.
+   * <i>LEVEL 3</i> - strtod recognizes four special input strings. The strings "inf" and "infinity"
+   * are converted to the infinity values described in {@link java.lang.Double}. You can prepend a
+   * "+" or "-" to specify the sign. Case is ignored when scanning these strings.
    * </p>
    * <p>
-   * LEVEL 3 - The strings "nan" and "nan(chars…)" are converted to NaN described in
+   * <i>LEVEL 3</i> - The strings "nan" and "nan(chars…)" are converted to NaN described in
    * {@link java.lang.Double}. Again, case is ignored. If chars… are provided, they are discarded.
+   * </p>
+   *
+   * <p>
+   * <b>Remark</b>: Functionalities marked with <i>LEVEL 2</i> and <i>LEVEL 3</i> can be implemented
+   * if the basics are implemented and validated!
    * </p>
    *
    * @param str
