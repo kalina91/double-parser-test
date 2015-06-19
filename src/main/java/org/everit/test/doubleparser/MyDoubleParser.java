@@ -5,7 +5,8 @@ public class MyDoubleParser implements DoubleParser {
   @Override
   public double strtod(final char[] str) {
 
-    throw new UnsupportedOperationException("Implement me in 40 minutes!");
+    // TODO Implement me in 40 minutes!
+    return 1;
 
   }
 
