@@ -22,8 +22,8 @@ public interface DoubleParser {
    * <li>A floating point number in decimal format. The decimal format is:</li>
    * <ul>
    * <li>A nonempty sequence of digits optionally containing a decimal-point character ‘.’.</li>
-   * <li>LEVEL2 - An optional exponent part, consisting of a character ‘e’ or ‘E’, an optional sign,
-   * and a sequence of digits.</li>
+   * <li>LEVEL 2 - An optional exponent part, consisting of a character ‘e’ or ‘E’, an optional
+   * sign, and a sequence of digits.</li>
    * </ul>
    * <li>Any remaining characters in the string are ignored.</li></ul>
    * <p>
@@ -36,13 +36,13 @@ public interface DoubleParser {
    * of a double, strtod will signal overflow or underflow.
    * </p>
    * <p>
-   * strtod recognizes four special input strings. The strings "inf" and "infinity" are converted to
-   * the infinity values described in {@link java.lang.Double}. You can prepend a "+" or "-" to
-   * specify the sign. Case is ignored when scanning these strings.
+   * LEVEL 3 - strtod recognizes four special input strings. The strings "inf" and "infinity" are
+   * converted to the infinity values described in {@link java.lang.Double}. You can prepend a "+"
+   * or "-" to specify the sign. Case is ignored when scanning these strings.
    * </p>
    * <p>
-   * The strings "nan" and "nan(chars…)" are converted to NaN described in {@link java.lang.Double}.
-   * Again, case is ignored. If chars… are provided, they are discarded.
+   * LEVEL 3 - The strings "nan" and "nan(chars…)" are converted to NaN described in
+   * {@link java.lang.Double}. Again, case is ignored. If chars… are provided, they are discarded.
    * </p>
    *
    * @param str
